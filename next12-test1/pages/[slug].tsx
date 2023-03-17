@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
-import Article, { ArticleData } from "./components/articles/Article";
 import axios from "axios";
+import Content from "./components/contents/Content";
+import { ContentData } from "./components/contents/interfaces";
 
-type ArticlePageProps = {
-  articleData?: ArticleData["data"];
+type ContentProps = {
+  contents?: ContentData["data"];
 };
 
-const ArticlePage = ({ articleData }: ArticlePageProps) => {
+const ContentPage = ({ contents }: ContentProps) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -15,7 +16,7 @@ const ArticlePage = ({ articleData }: ArticlePageProps) => {
 
   return (
     <div>
-      <Article articles={articleData} />
+      <Content contents={contents} />
     </div>
   );
 };
@@ -24,7 +25,7 @@ export const getStaticPaths = async () => {
   let slugs: any[] = [];
 
   try {
-    const response = await axios.get<ArticleData[]>(
+    const response = await axios.get<ContentData[]>(
       "https://acecmsmock.z6.web.core.windows.net/api/content/web/3"
     );
     slugs = response.data.map((article) => article.slug);
@@ -38,19 +39,19 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  let articleData;
+  let contents;
 
   try {
-    const response = await axios.get<ArticleData>(
+    const response = await axios.get<ContentData>(
       `https://acecmsmock.z6.web.core.windows.net/api/content/slug/${params.slug}?webId=3`
     );
-    articleData = response.data.data;
+    contents = response.data.data;
   } catch (error) {
     console.error(error);
-    return { notFound: true }; // return 404 status code
+    return { notFound: true };
   }
 
-  return { props: { articleData } };
+  return { props: { contents } };
 };
 
-export default ArticlePage;
+export default ContentPage;

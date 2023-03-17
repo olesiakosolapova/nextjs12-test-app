@@ -8,39 +8,21 @@ export const Footer = () => {
   );
   if (!data) return null;
   return (
-    <footer
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <footer className="footer">
+      <div>
         {data.data.columns.map((column, index) => (
-          <div key={index} className="column" style={{ margin: "0 10px" }}>
-            <ul style={{ listStyle: "none", padding: 0 }}>
+          <div key={index}>
+            <ul>
               {column.links?.map((link, index) => (
-                <li key={index} style={{ marginBottom: "5px" }}>
-                  <a href={link.url} style={{ textDecoration: "none" }}>
-                    {link.name}
-                  </a>
+                <li key={index}>
+                  <a href={link.url}>{link.name}</a>
                 </li>
               ))}
             </ul>
           </div>
         ))}
       </div>
-      <div
-        dangerouslySetInnerHTML={{ __html: data.data.address }}
-        style={{ textAlign: "center", marginTop: "20px" }}
-      ></div>
+      <div dangerouslySetInnerHTML={{ __html: data.data.address }}></div>
       <div
         style={{
           display: "flex",
@@ -49,34 +31,12 @@ export const Footer = () => {
           marginTop: "20px",
         }}
       >
-        <a
-          href={data.data.facebook}
-          style={{ margin: "0 10px", textDecoration: "none" }}
-        >
-          Facebook
-        </a>
-        <a
-          href={data.data.twitter}
-          style={{ margin: "0 10px", textDecoration: "none" }}
-        >
-          Twitter
-        </a>
-        <a
-          href={data.data.youtube}
-          style={{ margin: "0 10px", textDecoration: "none" }}
-        >
-          Youtube
-        </a>
-        <a
-          href={data.data.instagram}
-          style={{ margin: "0 10px", textDecoration: "none" }}
-        >
-          Instagram
-        </a>
+        <a href={data.data.facebook}>Facebook</a>
+        <a href={data.data.twitter}>Twitter</a>
+        <a href={data.data.youtube}>Youtube</a>
+        <a href={data.data.instagram}>Instagram</a>
       </div>
-      <div style={{ textAlign: "center", marginTop: "20px" }}>
-        {data.data.copyright.replace(/(<([^>]+)>)/gi, "")}
-      </div>
+      <p>{data.data.copyright.replace(/(<([^>]+)>)/gi, "")}</p>
     </footer>
   );
 };

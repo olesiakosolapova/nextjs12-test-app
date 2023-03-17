@@ -8,37 +8,23 @@ export const Navbar = () => {
     (state: StoreStateAll) => state.navbar.data
   );
   return (
-    <nav>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          gap: "1rem",
-          fontSize: "1.5rem",
-        }}
-      >
-        {links?.data.items?.map((link) => (
-          <li key={link.name}>
-            <Link href={`${link.uri}`}>{link.name}</Link>
-          </li>
-        ))}
+    <section className="navigation">
+      <div className="nav-container">
+        <nav>
+          <ul>
+            {links?.data.items?.map((link) => (
+              <li key={link.name}>
+                <Link href={`${link.uri}`}>{link.name}</Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/vyrazte-za-kraskou-a-zviretem-nebo-za-loutkami-vikend-bude-kulturni">
+                <a>Article</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          gap: "1rem",
-          fontSize: "1.5rem",
-        }}
-      >
-        <Link href="/vyrazte-za-kraskou-a-zviretem-nebo-za-loutkami-vikend-bude-kulturni">
-          <a>Example Article</a>
-        </Link>
-      </div>
-    </nav>
+    </section>
   );
 };

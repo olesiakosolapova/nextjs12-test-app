@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Footer } from "./Footer";
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import store from "../../../store";
 import { preloadFn } from "../../api/preloadFn";
 import { usePreload } from "../../hooks/usePreload";
