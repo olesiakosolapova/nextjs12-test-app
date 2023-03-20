@@ -4,7 +4,7 @@ import {
   FETCH_FOOTER_SUCCESS,
   FETCH_FOOTER_FAILURE,
 } from "../constants/constants";
-import { NavbarApiResponse, FooterData } from "../interfaces";
+import { NavbarApiResponse, FooterData, NavbarItem } from "../interfaces";
 import {
   FetchNavbarSuccessAction,
   FetchNavbarFailureAction,
@@ -13,7 +13,7 @@ import {
 } from "./interfaces";
 
 export const fetchNavbarSuccess = (
-  data: NavbarApiResponse
+  data: NavbarItem[]
 ): FetchNavbarSuccessAction => {
   return {
     type: FETCH_NAVBAR_SUCCESS,

@@ -6,7 +6,7 @@ import {
   FETCH_FOOTER_SUCCESS,
   FETCH_FOOTER_FAILURE,
 } from "../constants/constants";
-import { NavbarApiResponse, FooterData } from "../interfaces";
+import { NavbarApiResponse, FooterData, NavbarItem } from "../interfaces";
 
 export interface FetchNavbarAction {
   type: typeof FETCH_NAVBAR;
@@ -14,7 +14,7 @@ export interface FetchNavbarAction {
 
 export interface FetchNavbarSuccessAction {
   type: typeof FETCH_NAVBAR_SUCCESS;
-  payload: NavbarApiResponse;
+  payload: NavbarItem[];
 }
 
 export interface FetchNavbarFailureAction {
