@@ -3,7 +3,7 @@ import Link from "next/link";
 import { NavbarApiResponse } from "../../../store/interfaces";
 import { StoreStateAll } from "../../../store/reducers/interfaces";
 
-export const Navbar = () => {
+const Navbar = () => {
   const links: NavbarApiResponse | null = useSelector(
     (state: StoreStateAll) => state.navbar.data
   );
@@ -28,3 +28,5 @@ export const Navbar = () => {
     </section>
   );
 };
+
+export default Navbar;

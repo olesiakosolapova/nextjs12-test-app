@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { FooterData } from "../../../store/interfaces";
 import { StoreStateAll } from "../../../store/reducers/interfaces";
 
-export const Footer = () => {
+const Footer = () => {
   const data: FooterData | null = useSelector(
     (state: StoreStateAll) => state.footer.data
   );
@@ -40,3 +40,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;

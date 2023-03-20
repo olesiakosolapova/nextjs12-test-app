@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { AllActions } from "../../store/actions/interfaces";
 import { StoreStateAll } from "../../store/reducers/interfaces";
 
-export function usePreload(
+export default function usePreload(
   preloadFn: (
     dispatch: ThunkDispatch<StoreStateAll, undefined, AllActions>
   ) => Promise<void>

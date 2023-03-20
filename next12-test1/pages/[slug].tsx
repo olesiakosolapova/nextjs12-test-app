@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import axios from "axios";
-import Content from "./components/contents/Content";
-import { ContentData } from "./components/contents/interfaces";
+import Content, { ContentData } from "./components/contents/Content";
 
 type ContentProps = {
   contents?: ContentData["data"];

@@ -1,10 +1,10 @@
 import React from "react";
-import { Footer } from "./Footer";
 import { Provider } from "react-redux";
 import store from "../../../store";
 import { preloadFn } from "../../api/preloadFn";
-import { usePreload } from "../../hooks/usePreload";
-import { Navbar } from "./Navbar";
+import usePreload from "../../hooks/usePreload";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 type propsChildren = {
   children: any;
@@ -22,3 +22,5 @@ export const Layout = (props: propsChildren) => {
     </div>
   );
 };
+
+export default Layout;
